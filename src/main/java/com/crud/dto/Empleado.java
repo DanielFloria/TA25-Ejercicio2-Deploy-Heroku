@@ -8,7 +8,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="empleado")
+@Table(name="empleados")
 public class Empleado  {
  
 	@Id
@@ -28,12 +28,7 @@ public class Empleado  {
 	
 	}
 
-	/**
-	 * @param dni
-	 * @param nombre
-	 * @param apellido
-	 * @param departamento
-	 */
+	
 	public Empleado(String dni, String nombre, String apellido, Departamento departamento) {
 		//super();
 		this.dni = dni;

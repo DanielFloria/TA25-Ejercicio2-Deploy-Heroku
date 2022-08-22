@@ -29,7 +29,7 @@ public class EmpleadoController {
 		return empleadoServiceImpl.listarEmpleados();
 	}
 	
-	@GetMapping("/empleados/{id}")
+	@GetMapping("/empleados/{dni}")
 	public Empleado empleadoPorId(@PathVariable(name="dni") String dni) {
 		Empleado empleadoPorId = new Empleado();
 		empleadoPorId = empleadoServiceImpl.empleadoPorId(dni);
@@ -37,7 +37,7 @@ public class EmpleadoController {
 		return empleadoPorId;
 	}
 	
-	@PutMapping("/empleados/{id}")
+	@PutMapping("/empleados/{dni}")
 	public Empleado actualizarEmpleado(@PathVariable(name="dni") String dni, @RequestBody Empleado empleado) {
 		Empleado empleadoSeleccionado = new Empleado();
 		Empleado empleadoActualizado = new Empleado();
@@ -53,7 +53,7 @@ public class EmpleadoController {
 		return empleadoActualizado;
 	}
 	
-	@DeleteMapping("/empleados/{id}")
+	@DeleteMapping("/empleados/{dni}")
 	public void borrarEmpleado(@PathVariable(name="dni") String dni) {
 		empleadoServiceImpl.borrarEmpleado(dni);
 	}

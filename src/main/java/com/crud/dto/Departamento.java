@@ -5,6 +5,8 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -13,18 +15,19 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name="departamento")
+@Table(name="departamentos")
 public class Departamento  {
  
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
 	@Column(name = "nombre")
 	private String nombre;
 	@Column(name = "presupuesto")
 	private int presupuesto;
 		
-    @OneToMany
-    @JoinColumn(name="codigo")
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "departamento")
     private List<Empleado> empleado;
 	
 	//Constructores

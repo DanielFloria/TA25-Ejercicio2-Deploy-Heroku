@@ -32,7 +32,7 @@ public class DepartamentoController {
 		return departamentoServiceImpl.listarDepartamentos();
 	}
 
-	@GetMapping("/departamentos/{id}")
+	@GetMapping("/departamentos/{codigo}")
 	public Departamento departamentoPorId(@PathVariable(name="codigo") Long id) {
 		Departamento departamentoPorId = new Departamento();
 		departamentoPorId = departamentoServiceImpl.departamentoPorId(id);
@@ -42,7 +42,7 @@ public class DepartamentoController {
 		return departamentoPorId;
 	}	
 
-	@PutMapping("/departamentos/{id}")
+	@PutMapping("/departamentos/{codigo}")
 	public Departamento actualizarDepartamento(@PathVariable(name="codigo") Long id, @RequestBody Departamento departamento) {
 		Departamento departamentoSeleccionado = new Departamento();
 		Departamento departamentoActualizado = new Departamento();
@@ -57,7 +57,7 @@ public class DepartamentoController {
 		return departamentoActualizado;
 	}
 
-	@DeleteMapping("/departamentos/{id}")
+	@DeleteMapping("/departamentos/{codigo}")
 	public void borrarDepartamento(@PathVariable(name="codigo") Long id) {
 		departamentoServiceImpl.borrarDepartamento(id);
 	}
